@@ -1,8 +1,10 @@
 import express from "express";
 import React from "react";
+import PropTypes from "prop-types";
 import { renderToString } from "react-dom/server";
 import hbs from "handlebars";
 
+import StyleContext from 'isomorphic-style-loader/StyleContext'
 import { createRoutes, match, RouterContext } from 'react-router';
 
 import routesDef from '../components/routes';
@@ -17,7 +19,6 @@ const theHtml = `<html>
 <h1>My First Server Side Render</h1>
 <div id="reactele">{{{reactele}}}</div>
 <script src="/app.js" charset="utf-8"></script>
-<script src="/vendor.js" charset="utf-8"></script>
 </body>
 </html>`;
 
@@ -43,11 +44,14 @@ router.get("*", async (req, res) => {
         throw new Error('err 2');
       }
 
+const insertCss = (styles) => console.log({ styles });
+
       const reactComp = renderToString(
-        <RouterContext
-          createElement={(Component, props) => <Component {...props} />}
-          {...renderProps}
-        />
+        <StyleContext.Provider value={{ insertCss }}>
+          <RouterContext
+            {...renderProps}
+          />
+        </StyleContext.Provider>
       );
 
       const htmlToSend = hbsTemplate({ reactele: reactComp });

@@ -1,4 +1,4 @@
-{
+module.exports = {
   "presets": [
     [
       "@babel/preset-env",
@@ -12,10 +12,11 @@
   ],
   "plugins": [
     "@babel/plugin-proposal-class-properties",
-    [
-      "react-css-modules",
-      {
-      }
-    ]
+    // [
+    //   "react-css-modules",
+    //   {
+    //     // "removeImport": true,
+    //   }
+    // ]
   ]
 }

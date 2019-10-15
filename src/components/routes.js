@@ -21,7 +21,6 @@ const NotFound = () => (
   <p>404</p>
 );
 
-
 export default (
   <Route component={App}>
     <Route path="/" component={Home} />
