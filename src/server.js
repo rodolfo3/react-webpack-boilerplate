@@ -8,7 +8,7 @@ app.use(compression());
 app.use(express.static("public"));
 
 
-app.use("/firstssr", ssr);
+app.get("*", ssr);
 
 
 const port = process.env.PORT || 3030;

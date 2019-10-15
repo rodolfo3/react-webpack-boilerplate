@@ -1,10 +1,16 @@
 import React from "react";
+import { Router, browserHistory } from 'react-router';
 
 
-import { hydrate } from "react-dom";
+import { render } from "react-dom";
 
 
-import App from "./app";
+import routes from './routes';
 
 
-hydrate(<App />, document.getElementById("reactele"));
+render(
+  <Router history={browserHistory}>
+    {routes}
+  </Router>,
+  document.getElementById("reactele")
+);
