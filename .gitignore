@@ -7,4 +7,4 @@ dist
 .eslintcache
 coverage
 jsconfig.json
-
+public
