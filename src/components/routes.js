@@ -1,17 +1,6 @@
 import React from 'react';
 import { Route, Link } from 'react-router';
-
-
-const App = ({ children }) => (
-  <div>
-    <h1>App</h1>
-    { children }
-    <hr />
-    <Link to="/">Home</Link>
-    &nbsp;
-    <Link to="/login">Login</Link>
-  </div>
-);
+import App from './app';
 
 
 const Home = () => (
